@@ -4,6 +4,12 @@ const сhoice = Number(
     ),
 );
 
+const size = prompt(
+    "Виберіть розмір:\nS, M, L\nРозмір напою впливає на вартість: M — +15 грн; L — +30 грн.",
+);
+
+const num = Number(prompt("Введіть кількість напоїв"));
+
 let drink;
 let price;
 
@@ -28,6 +34,15 @@ switch (сhoice) {
         drink = "-";
 }
 
+switch (size) {
+    case "M":
+        price += 15;
+        break;
+    case "L":
+        price += 30;
+        break;
+}
+
 if (drink === "-") {
     console.log(
         "Помилка! Ваше замовлення неможливо обробити через некоректний вибір",
@@ -36,8 +51,14 @@ if (drink === "-") {
     console.log(
         "===== Замовлення =====\nНапій:",
         drink,
-        "\nВартість:",
+        "\nРозмір: ",
+        size,
+        " \nКількість:",
+        num,
+        " \nЦіна за одиницю:",
         price,
+        "\nДо сплати:",
+        price * num,
         "грн",
     );
 }
