@@ -7,12 +7,6 @@ const cafe = () => {
         ),
     );
 
-    const size = prompt(
-        "Виберіть розмір:\nS, M, L\nРозмір напою впливає на вартість: M — +15 грн; L — +30 грн.",
-    );
-
-    const num = Number(prompt("Введіть кількість напоїв"));
-
     let drink;
     let price;
 
@@ -37,20 +31,26 @@ const cafe = () => {
             drink = "-";
     }
 
-    switch (size) {
-        case "M":
-            price += 15;
-            break;
-        case "L":
-            price += 30;
-            break;
-    }
-
     if (drink === "-") {
         console.log(
             "Помилка! Ваше замовлення неможливо обробити через некоректний вибір",
         );
     } else {
+        const size = prompt(
+            "Виберіть розмір:\nS, M, L\nРозмір напою впливає на вартість: M — +15 грн; L — +30 грн.",
+        );
+
+        const num = Number(prompt("Введіть кількість напоїв"));
+
+        switch (size) {
+            case "M":
+                price += 15;
+                break;
+            case "L":
+                price += 30;
+                break;
+        }
+
         console.log(
             "===== Замовлення =====\nНапій:",
             drink,
